@@ -21,7 +21,8 @@ int main(){
 
     send(clientFD,filename,sizeof(filename),0); //firs thing sent- > filenmae, server uses this to create file
 
-    char buffer[1024];
+    /*file data is sent in chunks(used buffer to serve that purpose). efficient memory usage*/
+    char buffer[1024]; 
     size_t bytes;
     while((bytes = fread(buffer,1,sizeof(buffer),fp))>0){ //read file, send to server
         send(clientFD,buffer,bytes,0);
