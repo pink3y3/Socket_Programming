@@ -5,4 +5,6 @@ tcp sockets use sock_stream which are more reliable and the data packets arrive 
 
 it is a client server model -> server listens for incoming connections and client initiates communication.
 
-filenames are sent before the file data so that server knows how to name the file while saving it locally
+filenames are sent before the file data so that server knows how to name the file while saving it locally.
+
+more info written in comments alongisde the code
