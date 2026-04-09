@@ -1,10 +1,10 @@
 #include "socketUtils.h"
 
 int main(){
-    int serverFD=makeIP4socket(); // opens tcp socket - ready to communicate
+    int serverFD=makeIP4Socket(); // opens tcp socket - ready to communicate
     struct sockaddr_in servAddr= assignSocketAddress();
 
-    if(bind(serverFD,(struct sockaddr*)&servAddr, sizeof(servAddr)) = -1){ //bind socket to ip+port(send all traffic here)
+    if(bind(serverFD,(struct sockaddr*)&servAddr, sizeof(servAddr)) == -1){ //bind socket to ip+port(send all traffic here)
         perror("bind failed");
         return 1;
     }
@@ -25,7 +25,7 @@ int main(){
     char filename[256];
     recv(clientFD,filename,sizeof(filename),0); //receive filename
     printf("receiving file: %s\n", filename);
-    file *fp = fopen(filename,"wb"); //prep to write incoming file
+    FILE *fp = fopen(filename,"wb"); //prep to write incoming file
     if(!fp){
         perror("file open failed");
         return 1;

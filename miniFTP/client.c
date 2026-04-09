@@ -1,7 +1,7 @@
 #include "socketUtils.h"
 
 int main(){
-    int clientFD=makeIP4socket(); // create socket
+    int clientFD=makeIP4Socket(); // create socket
     struct sockaddr_in servAddr = assignSocketAddress();
 
     if(connect(clientFD,(struct sockaddr*)&servAddr, sizeof(servAddr)) == -1){ //connect to server(ip+port)
@@ -13,7 +13,7 @@ int main(){
     printf("enter filename to send: ");
     scanf("%s",filename);
 
-    file *fp = fopen(filename,"rb"); //read file in bin mode
+    FILE *fp = fopen(filename,"rb"); //read file in bin mode
     if(!fp){
         perror("file open failed");
         return 1;

@@ -24,7 +24,7 @@ struct sockaddr_in assignSocketAddress(){
     addr.sin_family=AF_INET;  //addr family, must be af_inet for ipv4
     addr.sin_port=htons(PORT); //port number hbo to network short big endian(beej)
     inet_pton(AF_INET,IP,&addr.sin_addr.s_addr); // ip address inet_pton -> human readable to binary
-    return addr
+    return addr;
 }
 
 #endif //closes include guard at the top
